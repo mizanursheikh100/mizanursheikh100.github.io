@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VELO Official Coin Seller</title>
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Hind Siliguri', sans-serif;
+        }
+        body {
+            background: radial-gradient(circle at top, #1f1135, #090414);
+            color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .card {
+            background: rgba(25, 15, 45, 0.9);
+            border: 2px solid #d4af37;
+            border-radius: 24px;
+            padding: 30px 22px;
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+            box-shadow: 0 10px 35px rgba(212, 175, 55, 0.25);
+            position: relative;
+        }
+        .badge {
+            background: linear-gradient(90deg, #b8860b, #ffd700, #b8860b);
+            color: #000;
+            font-weight: 700;
+            font-size: 13px;
+            padding: 5px 16px;
+            border-radius: 50px;
+            display: inline-block;
+            margin-bottom: 12px;
+            letter-spacing: 0.5px;
+            box-shadow: 0 3px 10px rgba(255, 215, 0, 0.3);
+        }
+        .title {
+            font-size: 26px;
+            font-weight: 700;
+            color: #ffd700;
+            margin-bottom: 5px;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.6);
+        }
+        .subtitle {
+            font-size: 15px;
+            color: #d1c4e9;
+            margin-bottom: 25px;
+        }
+        .info-box {
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(212, 175, 55, 0.4);
+            border-radius: 16px;
+            padding: 14px 16px;
+            margin-bottom: 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .info-text {
+            text-align: left;
+        }
+        .label {
+            font-size: 13px;
+            color: #b39ddb;
+            display: block;
+        }
+        .value {
+            font-size: 19px;
+            font-weight: 700;
+            color: #ffffff;
+            letter-spacing: 0.5px;
+        }
+        .copy-btn {
+            background: linear-gradient(135deg, #ffd700, #b8860b);
+            color: #000;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 14px;
+            cursor: pointer;
+            transition: 0.2s;
+            box-shadow: 0 2px 8px rgba(255, 215, 0, 0.2);
+        }
+        .copy-btn:active {
+            transform: scale(0.94);
+        }
+        .wa-btn {
+            background: linear-gradient(135deg, #25D366, #128C7E);
+            color: #fff;
+            text-decoration: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            padding: 15px;
+            border-radius: 16px;
+            font-size: 18px;
+            font-weight: 700;
+            margin-top: 22px;
+            box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4);
+            transition: 0.3s;
+        }
+        .wa-btn:hover {
+            opacity: 0.95;
+        }
+        .footer-note {
+            margin-top: 20px;
+            font-size: 13px;
+            color: #9575cd;
+        }
+        .toast {
+            visibility: hidden;
+            min-width: 220px;
+            background-color: #25D366;
+            color: #fff;
+            text-align: center;
+            border-radius: 50px;
+            padding: 10px 20px;
+            position: fixed;
+            z-index: 10;
+            bottom: 30px;
+            font-size: 15px;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+        }
+        .toast.show {
+            visibility: visible;
+            animation: fadein 0.3s, fadeout 0.3s 2s;
+        }
+        @keyframes fadein {
+            from {bottom: 0; opacity: 0;}
+            to {bottom: 30px; opacity: 1;}
+        }
+        @keyframes fadeout {
+            from {bottom: 30px; opacity: 1;}
+            to {bottom: 0; opacity: 0;}
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <div class="badge">★ OFFICIAL COIN SELLER ★</div>
+        <div class="title">VELO অফিশিয়াল রিচার্জ</div>
+        <div class="subtitle">২৪/৭ বিশ্বস্ত সার্ভিস ও দ্রুত ডেলিভারি</div>
+
+        <!-- রিসেলার আইডি বক্স -->
+        <div class="info-box">
+            <div class="info-text">
+                <span class="label">রিসেলার আইডি (Reseller ID)</span>
+                <span class="value" id="resellerId">93981988</span>
+            </div>
+            <button class="copy-btn" onclick="copyData('93981988', 'আইডি কপি হয়েছে!')">কপি করুন</button>
+        </div>
+
+        <!-- হোয়াটসঅ্যাপ নাম্বার বক্স -->
+        <div class="info-box">
+            <div class="info-text">
+                <span class="label">হোয়াটসঅ্যাপ নাম্বার (WhatsApp)</span>
+                <span class="value" id="waNumber">+8801857749250</span>
+            </div>
+            <button class="copy-btn" onclick="copyData('+8801857749250', 'নাম্বার কপি হয়েছে!')">কপি করুন</button>
+        </div>
+
+        <!-- সরাসরি হোয়াটসঅ্যাপে চ্যাট করার বাটন -->
+        <a href="https://wa.me/8801857749250?text=হ্যালো,%20আমি%20VELO%20অ্যাপের%20কয়েন%20কিনতে%20চাই।" class="wa-btn" target="_blank">
+            <span>💬 সরাসরি হোয়াটসঅ্যাপে মেসেজ দিন</span>
+        </a>
+
+        <div class="footer-note">
+            নিরাপদে কয়েন রিচার্জ করতে উপরের নাম্বারে যোগাযোগ করুন।
+        </div>
+    </div>
+
+    <div id="toast" class="toast">কপি হয়েছে!</div>
+
+    <script>
+        function copyData(text, msg) {
+            navigator.clipboard.writeText(text).then(function() {
+                showToast(msg);
+            }, function() {
+                var tempInput = document.createElement("input");
+                tempInput.value = text;
+                document.body.appendChild(tempInput);
+                tempInput.select();
+                document.execCommand("copy");
+                document.body.removeChild(tempInput);
+                showToast(msg);
+            });
+        }
+
+        function showToast(msg) {
+            var toast = document.getElementById("toast");
+            toast.innerText = "✅ " + msg;
+            toast.className = "toast show";
+            setTimeout(function(){ toast.className = toast.className.replace("show", ""); }, 2200);
+        }
+    </script>
+
+</body>
+</html>
